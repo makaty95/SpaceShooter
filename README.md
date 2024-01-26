@@ -38,7 +38,7 @@ void Enemy::decreaseHP(float amount) {
 
 ## Why SFML?
 - simple and easy
-- fast in redering time
+- fast in rendering time
 - openGL based
 
 ![test an image](./SpaceShooter/stuff/jet.png)
