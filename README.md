@@ -47,3 +47,10 @@ void Enemy::decreaseHP(float amount) {
 
 - [x] Task #1
 - [ ] Task #2
+
+---
+
+| Name | Current State | Next State |
+| :---- | :---- | :---- |
+| green | green | yellow |
+| Yellow | Yellow | Red |
