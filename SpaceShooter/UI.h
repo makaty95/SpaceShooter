@@ -12,9 +12,8 @@ using namespace std;
 
 
 //-------------------Classes-------------------------//
-class HealthBar {
+class HealthBar : public RectangleShape{
 public:
-	RectangleShape shape;
 	float Health;
 	float maxHealth;
 	float height, width;
@@ -42,7 +41,7 @@ public:
 	Texture background;
 	Texture player_tex;
 	Texture shield_tex;
-	Texture bullet_tex;
+	Texture playerBullet_tex;
 	Texture enemy_tex;
 	Texture enemyBullet_tex;
 

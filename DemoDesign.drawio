@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2024-01-27T16:22:05.537Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="fmApbqrydJJ88IX5miGw" version="22.0.2" type="device">
+  <diagram name="Page-1" id="DDZp3nZ2tt-_Qgnv934Q">
+    <mxGraphModel dx="2487" dy="1442" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="413" pageHeight="291" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="upgvWfKkWdUto6b8YIJi-5" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 22px;&quot;&gt;&lt;b style=&quot;font-size: 22px;&quot;&gt;Player&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;- score : int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ player_shield : Shield&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ playerCenter : Vector2f&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ health_bar : HealthBar*&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ currentVelocity : Vector2f&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ direction : Vector2f&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ maxVelocity : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ acceleration : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ drag : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ bulletStrength : float&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ Player(Texture*, Texture*) : void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ addToScore(int) : void&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ decreaseHP(float) : void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ getScore(void) : int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=22;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="104" width="473" height="474" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-9" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;fontSize=12;curved=1;exitX=0.158;exitY=1.031;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.613;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="upgvWfKkWdUto6b8YIJi-18" target="upgvWfKkWdUto6b8YIJi-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280.99999999999955" y="-9" as="sourcePoint" />
+            <mxPoint x="545" y="208" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-11" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;fontSize=12;curved=1;exitX=0.767;exitY=1.004;exitDx=0;exitDy=0;entryX=0.188;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="upgvWfKkWdUto6b8YIJi-19" target="upgvWfKkWdUto6b8YIJi-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="60.039999999999964" y="-2.9600000000000364" as="sourcePoint" />
+            <mxPoint x="59" y="101" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-14" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 22px;&quot;&gt;&lt;b&gt;Enemy&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ shootingTimer : int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ health_bar : HealthBar*&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ bulletStrength : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ movingSpeed : Vector2f&amp;nbsp;&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ Enemy(Texture*, Vector2u) : void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ decreaseHP(float) : void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=22;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="-522" y="106" width="473" height="264" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-15" value="Sprite" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-115" y="780" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-16" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;fontSize=12;exitX=0.336;exitY=1.004;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0;entryDx=55;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="upgvWfKkWdUto6b8YIJi-5" target="upgvWfKkWdUto6b8YIJi-15">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="230.25" y="651" as="sourcePoint" />
+            <mxPoint x="118" y="856" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-17" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;fontSize=12;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=65;entryDy=180;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="upgvWfKkWdUto6b8YIJi-14" target="upgvWfKkWdUto6b8YIJi-15">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-245.00200000000015" y="653.9960000000001" as="sourcePoint" />
+            <mxPoint x="-164.02999999999994" y="818" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-18" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 22px;&quot;&gt;&lt;b&gt;Shield&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ isShieldActice : bool&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=22;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="204" y="-312" width="473" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-19" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 22px;&quot;&gt;&lt;b&gt;HealthBar&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ Health: float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ maxHealth : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ height : float&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ width : float&lt;/p&gt;&lt;hr style=&quot;font-size: 22px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ HealthBar(float, float, float) : void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 22px;&quot;&gt;+ decreaseHealth(float) : void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=22;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="-285" y="-312" width="473" height="262" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-20" value="RectangleShape" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="889" y="-315" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="upgvWfKkWdUto6b8YIJi-21" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0;entryDx=65;entryDy=180;entryPerimeter=0;" edge="1" parent="1" source="upgvWfKkWdUto6b8YIJi-18" target="upgvWfKkWdUto6b8YIJi-20">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1121" y="-142" as="sourcePoint" />
+            <mxPoint x="1037" y="113" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

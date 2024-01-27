@@ -12,8 +12,8 @@ using namespace sf;
 
 // constructors
 HealthBar::HealthBar(float _height, float _width, float _maxHealth) : maxHealth(_maxHealth), Health(_maxHealth), height(_height), width(_width) {
-	shape.setSize({ _width, _height });
-	shape.setPosition({ 10.f, 40.f });
+	this->setSize({ _width, _height });
+	this->setPosition({ 10.f, 40.f });
 }
 
 UI_Texes_Utility::UI_Texes_Utility() {
@@ -52,7 +52,7 @@ UI_Texes_Utility::UI_Texes_Utility() {
 	//importing UI Textures
 	shield_tex.loadFromFile("stuff/shield.png");
 	if (player_tex.loadFromFile("stuff/jet.png")) cout << "player texture loaded\n";
-	if (bullet_tex.loadFromFile("stuff/bullet.png"))cout << "bullet texture loaded\n";
+	if (playerBullet_tex.loadFromFile("stuff/bullet.png"))cout << "bullet texture loaded\n";
 	if (enemy_tex.loadFromFile("stuff/enemy.png"))cout << "enemy texture loaded\n";
 	if (enemyBullet_tex.loadFromFile("stuff/ebullet.png"))cout << "enemy texture loaded\n";
 
@@ -62,7 +62,7 @@ void HealthBar::decreaseHealth(float amount) {
 	
 	width -= min(amount, width);
 	Health -= min(amount, Health);
-	shape.setSize({ width, height });
+	this->setSize({ width, height });
 
 }
 

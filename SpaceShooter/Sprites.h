@@ -11,17 +11,16 @@
 
 ////////////////////////////////////////Enemy////////////////////////////////////////
 
-class Enemy {
+class Enemy : public Sprite{
 private:
-	Texture* texture;
 
 public:
 
-	float bulletStrength = 10.f; // make it static
+	float bulletStrength = 10.f;
 	HealthBar* health_bar;
 	int shootingTimer = 0;
 	Vector2f movingSpeed = { 5.f, 5.f };
-	Sprite shape;
+
 
 	Enemy(Texture* _texture, Vector2u windowSize);
 	void decreaseHP(float amount);
@@ -29,43 +28,39 @@ public:
 
 };
 
-////////////////////////////////////////Player////////////////////////////////////////
-struct Force {
-public:
+////////////////////////////////////////Player//////////////////////////////////////////////////////////////////
 
-	Vector2f magnitude = { 0.f, 0.f };
-	Vector2f direction = { 0.f , 0.f };
+
+class Shield : public Sprite {
+private:
+	
+public:
+	bool isShieledActive;
 
 };
 
-class Player {
+class Player : public Sprite {
 private:
-	Texture* texture;
-	Texture* shield_tex;
 	int score;
-
 
 public:
 
-	Force appForce;
+	Shield player_shield;
 	Vector2f playerCenter;
-	Sprite shield;
-	bool isShieledActive;
 	HealthBar* health_bar;
-	Sprite shape;
 
 	Vector2f currentVelocity = { 0.f, 0.f };
 	Vector2f direction = { 0.f, 0.f };
 	float maxVelocity = 6.f;
 	float acceleration = 0.5f;
 	float drag = 0.1f;
-	float bulletStrength = 40.f; //make it static
+	static float bulletStrength; //make it static
 
 	Player(Texture* _texture, Texture* _shield_tex);
 	void addToScore(int _x);
 	void decreaseHP(float amount);
 	int getScore();
-	~Player() {}
+
 
 };
 

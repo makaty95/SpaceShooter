@@ -22,6 +22,7 @@ int main() {
 	RenderWindow window(VideoMode(1280, 720), "Mainwindow");
 	window.setFramerateLimit(60);
 
+
 	
 	/*Player::bulletStrength = 20.f;
 	Enemy::bulletStrength = 20.f;*/
@@ -55,8 +56,8 @@ int main() {
 
 		window.clear();
 		window.draw(Game.UIs.back);
-		window.draw(Game.player->shape);
-		window.draw(Game.player->health_bar->shape);
+		window.draw(*Game.player);
+		window.draw(*Game.player->health_bar);
 		window.draw(Game.UIs.scoreLabel);
 		window.draw(Game.UIs.scoreValue);
 		window.draw(Game.UIs.HPLabel);
@@ -64,8 +65,8 @@ int main() {
 			window.draw(Game.UIs.gameOverT);
 		}
 
-		if (Game.player->isShieledActive) {
-			window.draw(Game.player->shield);
+		if (Game.player->player_shield.isShieledActive) {
+			window.draw(Game.player->player_shield);
 		}
 
 		// draw bullets
@@ -74,8 +75,8 @@ int main() {
 		}
 
 		for (auto& enemy : Game.enemies) {
-			window.draw(enemy.shape);
-			window.draw(enemy.health_bar->shape);
+			window.draw(enemy);
+			window.draw(*enemy.health_bar);
 		}
 		window.display();
 	}

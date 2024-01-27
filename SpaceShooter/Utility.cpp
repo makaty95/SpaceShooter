@@ -46,13 +46,13 @@ void GameManager::gameOver() {
 }
 void GameManager::Update() {
 	UIs.scoreValue.setString(to_string(player->getScore()));
-	player->shield.setPosition(player->playerCenter);
+	player->player_shield.setPosition(player->playerCenter);
 }
 
 void GameManager::checkBullets() {
 	int n = bullets.size();
 	for (int i = 0; i < n; i++) {
-		if (bullets[i].source == bulletSource::ENEMY and player->shape.getGlobalBounds().intersects(bullets[i].shape.getGlobalBounds())) {
+		if (bullets[i].source == bulletSource::ENEMY and player->getGlobalBounds().intersects(bullets[i].shape.getGlobalBounds())) {
 
 			player->decreaseHP(bullets[i].strength);
 			bullets.erase(bullets.begin() + i);
@@ -65,7 +65,7 @@ void GameManager::checkBullets() {
 	for (int i = 0; i < n; i++) {
 		flag = 0;
 		for (int j = 0; j < enemies.size(); j++) {
-			if (bullets[i].source == bulletSource::PLAYER and bullets[i].shape.getGlobalBounds().intersects(enemies[j].shape.getGlobalBounds())) {
+			if (bullets[i].source == bulletSource::PLAYER and bullets[i].shape.getGlobalBounds().intersects(enemies[j].getGlobalBounds())) {
 
 				player->addToScore(5);
 				enemies[j].decreaseHP(bullets[i].strength);
@@ -85,19 +85,19 @@ void GameManager::checkBullets() {
 
 	//enemy health_bar
 	for (auto& e : enemies) {
-		e.health_bar->shape.setPosition({ e.shape.getPosition().x, e.shape.getPosition().y - 3.f });
+		e.health_bar->setPosition({ e.getPosition().x, e.getPosition().y - 3.f });
 	}
 
 }
 
 void GameManager::enemyBehaviour(RenderWindow& window) {
 	for (auto& enemy : enemies) {
-		enemy.shape.move({ -enemy.movingSpeed.x * deltaTime * multiplier, 0.f });
+		enemy.move({ -enemy.movingSpeed.x * deltaTime * multiplier, 0.f });
 
 	}
 	int n = enemies.size();
 	for (int i = 0; i < n; i++) {
-		if (outsideScreen(enemies[i].shape, window)) {
+		if (outsideScreen(enemies[i], window)) {
 			enemies.erase(enemies.begin() + i);
 			cout << "enemy removed" << endl;
 			break;
@@ -106,14 +106,14 @@ void GameManager::enemyBehaviour(RenderWindow& window) {
 
 	//shooting
 	for (auto& enemy : enemies) {
-		if (abs(player->shape.getPosition().y - enemy.shape.getPosition().y) <= 200) {
+		if (abs(player->getPosition().y - enemy.getPosition().y) <= 200) {
 
 			if (enemy.shootingTimer >= 70) {
 				Bullet bullet(&UIs.enemyBullet_tex, bulletSpeed.x / 2);
 				bullet.strength = enemy.bulletStrength;
 				bullet.source = bulletSource::ENEMY;
-				Vector2f enemy_center = { enemy.shape.getPosition().x + enemy.shape.getGlobalBounds().width / 2,
-					enemy.shape.getPosition().y + enemy.shape.getGlobalBounds().height / 2 };
+				Vector2f enemy_center = { enemy.getPosition().x + enemy.getGlobalBounds().width / 2,
+					enemy.getPosition().y + enemy.getGlobalBounds().height / 2 };
 
 				bullet.shape.setPosition(enemy_center);
 				bullets.push_back(bullet);
@@ -137,13 +137,13 @@ void GameManager::spawnEnemies(RenderWindow& window) {
 }
 
 void GameManager::checkPlayerBounds(RenderWindow& window) {
-	auto x = player->shape.getPosition().x;
-	auto y = player->shape.getPosition().y;
+	auto x = player->getPosition().x;
+	auto y = player->getPosition().y;
 	if (y < 0) {
-		player->shape.setPosition(x, 0);
+		player->setPosition(x, 0);
 	}
-	if (y + player->shape.getGlobalBounds().height > window.getSize().y) {
-		player->shape.setPosition(x, window.getSize().y - player->shape.getGlobalBounds().height);
+	if (y + player->getGlobalBounds().height > window.getSize().y) {
+		player->setPosition(x, window.getSize().y - player->getGlobalBounds().height);
 	}
 }
 
@@ -211,10 +211,10 @@ void GameManager::movePlayer() {
 		player->currentVelocity.y = min(player->maxVelocity, player->currentVelocity.y + (player->drag * deltaTime * multiplier));
 	}
 
-	player->shape.move({(player->currentVelocity.x) * player->direction.x * deltaTime * multiplier,
+	player->move({(player->currentVelocity.x) * player->direction.x * deltaTime * multiplier,
 		(player->currentVelocity.y) * player->direction.y * deltaTime * multiplier });
 
-	player->playerCenter = { player->shape.getPosition().x + player->shape.getGlobalBounds().width / 2, player->shape.getPosition().y + player->shape.getGlobalBounds().height / 2 };
+	player->playerCenter = { player->getPosition().x + player->getGlobalBounds().width / 2, player->getPosition().y + player->getGlobalBounds().height / 2 };
 
 }
 
@@ -222,7 +222,7 @@ void GameManager::Shoot() {
 
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
 		if (shootTimer >= 10) {
-			Bullet bullet(&UIs.bullet_tex, bulletSpeed.x);
+			Bullet bullet(&UIs.playerBullet_tex, bulletSpeed.x);
 			bullet.source = bulletSource::PLAYER;
 			bullet.strength = player->bulletStrength;
 			bullet.shape.setPosition(player->playerCenter);
@@ -269,11 +269,11 @@ void GameManager::validateBullets(RenderWindow& window) {
 		}
 
 		// if shield is active and a bullet intersected with it
-		if (player->isShieledActive and bullets[i].source == bulletSource::ENEMY and bullets[i].shape.getGlobalBounds().intersects(player->shield.getGlobalBounds())) {
-			player->shield.setColor(Color::Green);
+		if (player->player_shield.isShieledActive and bullets[i].source == bulletSource::ENEMY and bullets[i].shape.getGlobalBounds().intersects(player->player_shield.getGlobalBounds())) {
+			player->player_shield.setColor(Color::Green);
 			bullets.erase(bullets.begin() + i);
 			cout << "bullet removed\n";
-			player->shield.setColor(Color::White);
+			player->player_shield.setColor(Color::White);
 			break;
 		}
 	}

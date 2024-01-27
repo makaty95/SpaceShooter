@@ -4,14 +4,13 @@
 /////////////////////////////////////////Enemy////////////////////////////////////////////////////////////////////
 
 Enemy::Enemy(Texture* _texture, Vector2u windowSize) {
-	this->texture = _texture;
-	this->shape.setTexture(*texture);
-	shape.setScale({ 0.12, 0.12 });
-	shape.setPosition(windowSize.x, rand() % windowSize.y - this->shape.getGlobalBounds().height);
+	this->setTexture(*_texture);
+	this->setScale({ 0.12, 0.12 });
+	this->setPosition(windowSize.x, rand() % windowSize.y - this->getGlobalBounds().height);
 
 	//health
 	health_bar = new HealthBar(5.f, 100.f, 100.f);
-	health_bar->shape.setFillColor(Color::Green);
+	health_bar->setFillColor(Color::Green);
 }
 
 void Enemy::decreaseHP(float amount) {
@@ -20,23 +19,21 @@ void Enemy::decreaseHP(float amount) {
 
 
 /////////////////////////////////////////Player////////////////////////////////////////////////////////////////////
-
+float Player::bulletStrength = 40.f;
 //Constructors//
 Player::Player(Texture* _texture, Texture* _shield_tex) {
-	shield_tex = _shield_tex;
-	isShieledActive = 0;
-	shield.setTexture(*shield_tex);
-	shield.setOrigin({ shield.getGlobalBounds().width / 2, shield.getGlobalBounds().height / 2 });
-	shield.setScale({ 0.3, 0.3 });
+	player_shield.setTexture(*_shield_tex);
+	player_shield.isShieledActive = 0;
+	player_shield.setOrigin({ player_shield.getGlobalBounds().width / 2, player_shield.getGlobalBounds().height / 2 });
+	player_shield.setScale({ 0.3, 0.3 });
 
 	score = 0;
-	this->texture = _texture;
-	this->shape.setTexture(*texture);
-	shape.setScale({ 0.2, 0.2 });
+	this->setTexture(*_texture);
+	this->setScale({ 0.2, 0.2 });
 
 	//health
 	health_bar = new HealthBar(15.f, 200.f, 200.f);
-	health_bar->shape.setFillColor(Color::Red);
+	health_bar->setFillColor(Color::Red);
 }
 
 // functions
